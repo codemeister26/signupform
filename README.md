@@ -1,7 +1,6 @@
 # signupform
 # Signup Form with Phone Number Validation
- This project is a React-based signup form that includes phone number validation with dynamic country code and flag display. It uses Formik for form management, Yup for validation, and react-phone-input-2 for phone number input with country code and flag support.
-
+ This project is a React-based signup form that includes phone number validation with dynamic country code and flag display. It uses Formik for form management, Yup for validation.
 # Features
 Form validation using Formik and Yup
 Dynamic phone number input with country code and flag using react-phone-input-2
