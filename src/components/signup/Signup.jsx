@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -19,7 +18,7 @@ const Signup = () => {
   const handleMouseDownPassword = (event) => event.preventDefault();
 
   // Validation schema
-  const phoneNoRegex = /^(\+\d{1,3}[- ]?)?\d{10,13}$/;
+  const phoneNoRegex = /^\+\d{1,3}\d{10,13}$/;
   const validationSchema = Yup.object().shape({
     name: Yup.string()
       .matches(/^[A-Za-z]+$/, "Name must only contain alphabetic characters")
@@ -32,17 +31,15 @@ const Signup = () => {
 
     phone: Yup.string()
       .required("Phone number is required")
-      .matches(/^[0-9]+$/, "Phone number must be only digits")
-      .matches(
-        phoneNoRegex,
-        "Phone number must be a valid international number"
-      ),
+      .matches(phoneNoRegex, "Phone number must be a valid international number starting with + country code"),
+    
     username: Yup.string()
       .required("Username is required")
       .matches(
         /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*])/,
         "Username must contain at least one uppercase letter, one lowercase letter, one number, and one special character"
       ),
+    
     password: Yup.string()
       .required("Password is required")
       .min(8, "Password must be at least 8 characters long")
@@ -53,6 +50,7 @@ const Signup = () => {
           return this.parent.username !== value;
         }
       ),
+    
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "Passwords must match")
       .required("Confirm password is required"),
@@ -171,7 +169,7 @@ const Signup = () => {
                 flexDirection={{ xs: "column", sm: "column", md: "row", lg: "row" }}
                 gap={{ xs: "10px", sm: "10px", md: "30px", lg: "30px" }}
               >
-                <FormControl sx={{  width: {xs:"100%",lg:"50%"},marginBlock:{sm:"15px",lg:"20px"}}} variant="standard">
+                <FormControl sx={{ width: {xs:"100%",lg:"50%"},marginBlock:{sm:"15px",lg:"20px"}}} variant="standard">
                   <InputLabel htmlFor="standard-adornment-password" sx={{ color: "#0B6770" }}>
                     NEW PASSWORD
                   </InputLabel>
@@ -200,7 +198,7 @@ const Signup = () => {
 
                 <FormControl sx={{ width:{xs:"100%",lg:"50%"},marginBlock:{sm:"20px",lg:"20px"}}} variant="standard">
                   <InputLabel htmlFor="standard-adornment-password" sx={{ color: "#0B6770" }}>
-                    CONFIRM NEW PASSWORD
+                    CONFIRM PASSWORD
                   </InputLabel>
                   <Field name="confirmPassword">
                     {({ field, meta }) => (

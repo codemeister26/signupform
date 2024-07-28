@@ -10,7 +10,6 @@ import FormControl from "@mui/material/FormControl";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
 import { Input, InputLabel } from "@mui/material";
-import { useFormControl } from "@mui/material/FormControl";
 import "./login.css";
 
 const Login = () => {
@@ -19,7 +18,6 @@ const Login = () => {
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => event.preventDefault();
 
-  // Validation schema
   const validationSchema = Yup.object().shape({
     username: Yup.string()
       .required("Username is required")
@@ -32,7 +30,6 @@ const Login = () => {
       .min(8, "Password must be at least 8 characters long"),
   });
 
-
   return (
     <Box
       component={"div"}
@@ -44,25 +41,8 @@ const Login = () => {
     >
       <Box width={"80%"}>
         <Box bgcolor={"#016b5e"} color={"white"} py={"10px"}>
-          <p
-            style={{
-              fontWeight: "500",
-              letterSpacing: "1px",
-              fontSize: "20px",
-            }}
-          >
-            Login
-          </p>
-          <p
-            style={{
-              fontSize: "18px",
-              marginTop: "-10px",
-              letterSpacing: "1px",
-            }}
-          >
-            {" "}
-            Sign in to continue
-          </p>
+          <p className="header-text">Login</p>
+          <p className="subheader-text">Sign in to continue</p>
         </Box>
         <Box width={"100%"} bgcolor={"white"} py={"20px"} pb={"30px"}>
           <Formik
@@ -86,11 +66,11 @@ const Login = () => {
                       style: { color: "#0B6770" },
                     }}
                     FormHelperTextProps={{
-                      style: { color: "red" }, 
+                      style: { color: "red" },
                     }}
                   />
                 </Box>
-        
+
                 <FormControl sx={{ m: 1, width: "25ch" }} variant="standard">
                   <InputLabel
                     htmlFor="standard-adornment-password"
@@ -130,7 +110,6 @@ const Login = () => {
                   />
                 </FormControl>
 
-                {/* </Box> */}
                 <Box display={"flex"} justifyContent={"center"} mt={"30px"}>
                   <Button
                     variant="contained"

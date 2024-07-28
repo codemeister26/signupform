@@ -1,13 +1,40 @@
-.error{
-    font-family: "Roboto","Helvetica","Arial",sans-serif;
-  font-weight: 400;
-  font-size: 0.75rem;
-  line-height: 1.66;
-  letter-spacing: 0.03333em;
-  text-align: left;
-  margin-top: 3px;
-  margin-right: 0;
-  margin-bottom: 0;
-  margin-left: 0;
+.signup-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #bfdad6;
+  height: 100vh;
+}
+
+.signup-header {
+  background-color: #016b5e;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  width: 80%;
+  box-sizing: border-box;
+}
+
+.signup-header p:first-of-type {
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 20px;
+}
+
+.signup-header p:last-of-type {
+  font-size: 18px;
+  margin-top: -10px;
+  letter-spacing: 1px;
+}
+
+.signup-form {
+  background-color: white;
+  padding: 20px 20px 30px 20px;
+  width: 80%;
+  box-sizing: border-box;
+}
+
+.error {
   color: red;
 }
